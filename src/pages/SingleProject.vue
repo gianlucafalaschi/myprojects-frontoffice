@@ -54,6 +54,9 @@ export default {
             
             <P class="mt-4">{{ project.summary }}</P>
         </div>
+        <div>
+            <router-link :to="{name:'projects'}" class="btn btn-primary">Back</router-link>
+        </div>
     </div>
 
 </template>
