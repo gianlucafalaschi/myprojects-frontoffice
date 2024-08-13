@@ -1,10 +1,12 @@
 <script>
 import axios from 'axios';
+import { store } from '../store';
 
 export default {
     name: 'SingleProject',
     data() {
         return {
+            store,
             project: null
         }; 
     },
@@ -12,7 +14,7 @@ export default {
     getProjectDetails() {
      // Funzione che prende il project dall'API  
      //<!-- $route.params.slug    sintassi per leggere lo slug della pagina -->       
-     axios.get(`http://127.0.0.1:8000/api/projects/${this.$route.params.slug}`)  
+     axios.get(`${this.store.backendUrl}/api/projects/${this.$route.params.slug}`)  
         .then((response) => {
           console.log(response);
           // se response.data.success è true mostriamo il single project
@@ -47,7 +49,7 @@ export default {
             </div>
 
             <div class="mt-4" v-if="project.cover_image">
-                <img :src="`http://127.0.0.1:8000/storage/${project.cover_image}`" :alt="project.name">
+                <img :src="`${store.backendUrl}/storage/${project.cover_image}`" :alt="project.name">
             </div>
             
             <P class="mt-4">{{ project.summary }}</P>
