@@ -14,8 +14,14 @@ export default {
      //<!-- $route.params.slug    sintassi per leggere lo slug della pagina -->       
      axios.get(`http://127.0.0.1:8000/api/projects/${this.$route.params.slug}`)  
         .then((response) => {
-          //console.log(response);
-          this.project = response.data.project;
+          console.log(response);
+          // se response.data.success è true mostriamo il single project
+          if(response.data.success) {
+            this.project = response.data.project;
+          } else{
+          // altrimenti redirect alla pagina 404
+          this.$router.push({name: 'not-found'})  
+          }
         });
     }
   },
