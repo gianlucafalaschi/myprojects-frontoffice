@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { store } from '../store';
 import ProjectCard from '../components/ProjectCard.vue';
+import Loader from '../components/Loader.vue';
 
 
 export default {
@@ -12,14 +13,17 @@ export default {
       projects: [],
       currentPage: 1,
       nextPageUrl: null,
-      prevPageUrl: null
+      prevPageUrl: null,
+      isLoading: false   // gestisce il caricamento del componente Loader
     }
   },
   components: {
-    ProjectCard
+    ProjectCard,
+    Loader
   },
   methods: {
     getProjectsFromApi(dataPage) {
+      this.isLoading = true;
       // Funzione che prende i projects dall'API 
       axios.get(`${this.store.backendUrl}/api/projects`, {
         params: {
@@ -36,9 +40,8 @@ export default {
           
           this.prevPageUrl = response.data.results.prev_page_url;
 
-
+          this.isLoading = false;
         });
-
     }
   },
   mounted() {
@@ -50,26 +53,31 @@ export default {
 <template>
   <div class="container">
     <h1>All projects</h1>
-
-    <div class="row row-cols-3">
-      <div class="col" v-for="project in projects" :key="project.id">
-        <ProjectCard :projectInfo="project"></ProjectCard>
+    
+    <div v-if="!isLoading">
+      <div class="row row-cols-3">
+        <div class="col" v-for="project in projects" :key="project.id">
+          <ProjectCard :projectInfo="project"></ProjectCard>
+        </div>
       </div>
+      <!-- Pagination -->
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <!--se c'è prevPageUrl, stampo il pulsante per la pagina precedente -->
+          <li v-if="prevPageUrl" class="page-item">
+            <a class="page-link" @click="getProjectsFromApi(currentPage - 1)">Previous</a>
+          </li>
+          <!--se c'è nextPageUrl, stampo il pulsante per la pagina successiva -->
+          <li v-if="nextPageUrl" class="page-item">
+            <a class="page-link" @click="getProjectsFromApi(currentPage + 1)">Next</a>
+          </li>
+        </ul>
+      </nav>  
+      <!-- / Pagination -->
     </div>
-    <!-- Pagination -->
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <!--se c'è prevPageUrl, stampo il pulsante per la pagina precedente -->
-        <li v-if="prevPageUrl" class="page-item">
-          <a class="page-link" @click="getProjectsFromApi(currentPage - 1)">Previous</a>
-        </li>
-        <!--se c'è nextPageUrl, stampo il pulsante per la pagina successiva -->
-        <li v-if="nextPageUrl" class="page-item">
-          <a class="page-link" @click="getProjectsFromApi(currentPage + 1)">Next</a>
-        </li>
-      </ul>
-    </nav>  
-    <!-- / Pagination -->
+    <div v-else>
+      <Loader></Loader>
+    </div>
   </div>
 </template>
 

@@ -1,17 +1,23 @@
 <script>
 import axios from 'axios';
 import { store } from '../store';
+import Loader from '../components/Loader.vue';
 
 export default {
     name: 'SingleProject',
+    components: {
+        Loader
+    },
     data() {
         return {
             store,
-            project: null
+            project: null,
+            isLoading: false  // gestisce il caricamento del componente Loader
         }; 
     },
     methods: {
     getProjectDetails() {
+        this.isLoading = true;
      // Funzione che prende il project dall'API  
      //<!-- $route.params.slug    sintassi per leggere lo slug della pagina -->       
      axios.get(`${this.store.backendUrl}/api/projects/${this.$route.params.slug}`)  
@@ -24,6 +30,8 @@ export default {
           // altrimenti redirect alla pagina 404
           this.$router.push({name: 'not-found'})  
           }
+
+          this.isLoading = false;
         });
     }
   },
@@ -35,7 +43,7 @@ export default {
 
 <template>
     <div class="container">
-        <div v-if="project">
+        <div v-if="project && !isLoading">
             <h1>{{project.name}}</h1>
             <div v-if="project.client_name"><strong>Client name</strong>: {{ project.client_name }}</div>
             <div v-if="project.type">
@@ -54,8 +62,11 @@ export default {
             
             <P class="mt-4">{{ project.summary }}</P>
         </div>
+        <div v-else>
+            <Loader></Loader>
+        </div>
         <div>
-            <router-link :to="{name:'projects'}" class="btn btn-primary">Back</router-link>
+            <router-link :to="{name:'projects'}" class="btn btn-primary my-4">Back</router-link>
         </div>
     </div>
 
