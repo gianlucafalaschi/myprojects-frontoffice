@@ -9,11 +9,12 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container ms-min-height">
         <h1>About me</h1>
     </div>
 </template>
 
-<style>
+<style scoped lang="scss">
+
 
 </style>

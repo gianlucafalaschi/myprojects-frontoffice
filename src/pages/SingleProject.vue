@@ -42,7 +42,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container ms-min-height">
         <div v-if="project && !isLoading">
             <h1>{{project.name}}</h1>
             <div v-if="project.client_name"><strong>Client name</strong>: {{ project.client_name }}</div>

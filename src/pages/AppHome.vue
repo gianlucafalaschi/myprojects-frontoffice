@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container ms-min-height">
     <h1>Welcome to our site</h1>
   </div>
   

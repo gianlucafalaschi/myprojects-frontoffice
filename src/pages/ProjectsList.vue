@@ -51,7 +51,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <div class="container ms-min-height">
     <h1>All projects</h1>
     
     <div v-if="!isLoading">

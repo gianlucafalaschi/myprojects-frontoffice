@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container ms-min-height">
         <h1 class="mb-3">Page non found</h1>
         <div class="d-flex flex-column gap-2">
             <router-link :to="{name: 'home'}">Back to Homepage</router-link>
