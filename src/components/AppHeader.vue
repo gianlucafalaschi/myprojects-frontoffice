@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-    <header>
+    <header class="sticky-top">
         <nav class="navbar navbar-expand-md bg-dark-subtle shadow">
             <div class="container-fluid">
                 <router-link class="navbar-brand fs-3" :to="{ name: 'home' }"><strong>YourProjects</strong></router-link>
