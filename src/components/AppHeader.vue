@@ -27,7 +27,7 @@ export default {
 
 <template>
     <header>
-        <nav class="navbar navbar-expand-lg bg-dark-subtle shadow">
+        <nav class="navbar navbar-expand-md bg-dark-subtle shadow">
             <div class="container-fluid">
                 <router-link class="navbar-brand fs-3" :to="{ name: 'home' }"><strong>YourProjects</strong></router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
