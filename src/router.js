@@ -4,6 +4,8 @@ import AppAbout from './pages/AppAbout.vue';
 import ProjectsList from './pages/ProjectsList.vue';
 import SingleProject from './pages/SingleProject.vue';
 import NotFound from './pages/NotFound.vue';
+import AppPrivacy from './pages/AppPrivacy.vue';
+
 
 
 const router = createRouter({
@@ -36,6 +38,11 @@ const router = createRouter({
             path: '/:pathMatch(.*)*',
             name: 'not-found',
             component: NotFound
+        },
+        {
+            path: '/privacy',
+            name: 'privacy',
+            component: AppPrivacy
         },
     ]
 });
