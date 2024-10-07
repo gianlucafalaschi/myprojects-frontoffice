@@ -10,7 +10,7 @@ export default {
 
 <template>
     <div class="container ms-min-height">
-        <h1>About me</h1>
+        <h1>About YourProjects</h1>
     </div>
 </template>
 
