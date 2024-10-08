@@ -27,7 +27,7 @@ export default {
 
 <template>
     <header class="sticky-top">
-        <nav class="navbar navbar-expand-md bg-dark-subtle shadow">
+        <nav class="navbar navbar-expand-md shadow">
             <div class="container-fluid">
                 <router-link class="navbar-brand fs-3" :to="{ name: 'home' }"><strong>YourProjects</strong></router-link>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -48,10 +48,10 @@ export default {
 </template>
 
 <style scoped lang="scss">
-//@use '../style/partials/variables' as *;
+@use '../style/partials/variables' as *;
 
-header {
-    
+nav {
+    background-color: $gray-color;
 }
 
 </style>
