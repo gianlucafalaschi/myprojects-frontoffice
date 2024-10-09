@@ -1,15 +1,22 @@
 <script>
+import { store } from '../store';
+
 export default {
   name: 'ProjectsCard',
   props: {
     projectInfo: Object
+  },
+  data() {
+    return {
+      store,
+    };
   }
 }
 </script>
 
 <template>
-    <div class="card my-3">
-          <!-- <img src="..." class="card-img-top" alt="..."> -->
+    <div class="card my-3 shadow">
+          <img :src="`${store.backendUrl}/storage/${projectInfo.cover_image}`" class="card-img-top" :alt="projectInfo.name">
           <div class="card-body">
             <h5 class="card-title">{{ projectInfo.name }}</h5>
             <div v-if="projectInfo.type">
@@ -23,7 +30,7 @@ export default {
               </div>
             </div>
             
-            <p v-if="projectInfo.summary" class="card-text">{{ projectInfo.summary }}</p>
+            <!-- <p v-if="projectInfo.summary" class="card-text">{{ projectInfo.summary }}</p> -->
             <router-link :to="{name:'single-project', params: {'slug': projectInfo.slug}}" class="btn btn-primary">Details</router-link>
           </div>
     </div>

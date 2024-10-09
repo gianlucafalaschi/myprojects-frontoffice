@@ -56,7 +56,7 @@ export default {
     
     <div v-if="!isLoading">
       <div class="row row-cols-3">
-        <div class="col" v-for="project in projects" :key="project.id">
+        <div class="col-12 col-sm-6 col-lg-4" v-for="project in projects" :key="project.id">
           <ProjectCard :projectInfo="project"></ProjectCard>
         </div>
       </div>
