@@ -13,22 +13,22 @@ export default {
     <section class="ms-hero d-flex justify-content-center align-items-center shadow">
         <div class="ms-inside-hero text-white text-center">
             <h1 class="mb-5">Designing the Future, One Website at a Time</h1>
-            <router-link class="btn btn-dark shadow" :to="{ name: 'projects' }">Go to our Projects </router-link>
+            <router-link class="btn btn-light ms-button-hover shadow" :to="{ name: 'projects' }">Go to our Projects </router-link>
         </div>
     </section>
-    
+
     <section>
-        <div class="ms-bg-color-light py-1">
+        <div class="py-1">
             <div class="container">
-                    <h1 class="mb-3">About YourProjects</h1>
-                    <p>Welcome to <strong>YourProjects</strong>! We are a passionate team of web development experts
-                        dedicated
-                        to bringing your digital dreams to life. Our mission is to create stunning, user-friendly websites
-                        that
-                        not only look great but also perform exceptionally well.</p>
+                <h1 class="mb-3">About YourProjects</h1>
+                <p>Welcome to <strong>YourProjects</strong>! We are a passionate team of web development experts
+                    dedicated
+                    to bringing your digital dreams to life. Our mission is to create stunning, user-friendly websites
+                    that
+                    not only look great but also perform exceptionally well.</p>
             </div>
         </div>
-        
+
         <div class="ms-bg-color-dark pt-1">
             <div class="container">
                 <h2 class="mb-3">Who We Are</h2>
@@ -39,7 +39,7 @@ export default {
                     ourselves
                     on our ability to transform ideas into reality.</p>
             </div>
-                
+
             <div class="ms-about-photo-box">
             </div>
         </div>
@@ -60,13 +60,13 @@ export default {
             <div class="container">
                 <h2 class="mb-3">Why Choose Us?</h2>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Expertise</strong>: Our team has a proven track record of
+                    <li class="list-group-item ms-bg-color-dark "><strong>Expertise</strong>: Our team has a proven track record of
                         delivering high-quality web solutions.</li>
-                    <li class="list-group-item"><strong>Innovation</strong>: We stay ahead of industry trends to provide
+                    <li class="list-group-item ms-bg-color-dark"><strong>Innovation</strong>: We stay ahead of industry trends to provide
                         cutting-edge solutions.</li>
-                    <li class="list-group-item"><strong>Customer Satisfaction</strong>: Your satisfaction is our top
+                    <li class="list-group-item ms-bg-color-dark"><strong>Customer Satisfaction</strong>: Your satisfaction is our top
                         priority, and we go the extra mile to ensure you are happy with the final product.</li>
-                    <li class="list-group-item"><strong>Affordability</strong>: We offer competitive pricing without
+                    <li class="list-group-item ms-bg-color-dark"><strong>Affordability</strong>: We offer competitive pricing without
                         compromising on quality.</li>
                 </ul>
             </div>
@@ -106,17 +106,15 @@ export default {
 }
 
 .ms-bg-color-light {
-    background-color: white;
+    background-color: none;
 }
 
 .ms-about-photo-box {
-  width: 100%;
-  height: 400px;
-  background-image: url(../assets/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+    width: 100%;
+    height: 400px;
+    background-image: url(../assets/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
-
-
 </style>
