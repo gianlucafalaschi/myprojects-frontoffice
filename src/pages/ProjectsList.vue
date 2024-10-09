@@ -62,7 +62,7 @@ export default {
       </div>
       <!-- Pagination -->
       <nav aria-label="Page navigation example">
-        <ul class="pagination">
+        <ul class="pagination mt-3">
           <!--se c'è prevPageUrl, stampo il pulsante per la pagina precedente -->
           <li v-if="prevPageUrl" class="page-item">
             <a class="page-link" @click="getProjectsFromApi(currentPage - 1)">Previous</a>
