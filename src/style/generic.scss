@@ -1,34 +1,36 @@
 /* * 
 {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 } 
     */
 
 // reset commentato dato che uso Bootstrap
 
 /* CONTAINER */
- .container.ms-min-height{
-    min-height: 100vh;
-    padding-top: 12px;
- }
+.container.ms-min-height {
+   min-height: 100vh;
+   padding-top: 12px;
+}
 
- /* BUTTON  */
- .ms-button-hover {
+/* BUTTON  */
+.ms-button-hover {
 
-    background-color: #4CAF50; /* Colore di sfondo */
-    border: none; /* Nessun bordo */
-    color: white; /* Colore del testo */
-    padding: 15px 32px; /* Spaziatura interna */
-    text-align: center; /* Allineamento del testo */
-    text-decoration: none; /* Nessuna decorazione del testo */
-    display: inline-block; /* Visualizzazione inline-block */
-    font-size: 16px; /* Dimensione del testo */
-    transition: transform 0.3s ease; /* Transizione per l'ingrandimento */
-    border-radius: 8px; /* Angoli arrotondati */
-  }
+   background-color: #000000;
+   border: 2px solid white;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   transition: transform 0.3s ease;
+   border-radius: 8px;
+   opacity: 0.9;
+}
 
- .ms-button-hover:hover {
-    transform: scale(1.1);
- } 
+.ms-button-hover:hover {
+   transform: scale(1.1);
+   border: 2px solid black;
+}

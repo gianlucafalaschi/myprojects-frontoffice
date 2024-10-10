@@ -12,12 +12,12 @@ export default {
                     rootName: 'home'    // name in rooter.js
                 },
                 {
-                    text: 'About',
-                    rootName: 'about'
-                },
-                {
                     text: 'Projects',
                     rootName: 'projects'
+                },
+                {
+                    text: 'About',
+                    rootName: 'about'
                 },
             ]
         };

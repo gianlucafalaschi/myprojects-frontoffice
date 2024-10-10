@@ -65,11 +65,11 @@ export default {
         <ul class="pagination mt-3">
           <!--se c'è prevPageUrl, stampo il pulsante per la pagina precedente -->
           <li v-if="prevPageUrl" class="page-item">
-            <a class="page-link" @click="getProjectsFromApi(currentPage - 1)">Previous</a>
+            <a class="page-link link-dark" @click="getProjectsFromApi(currentPage - 1)">Previous</a>
           </li>
           <!--se c'è nextPageUrl, stampo il pulsante per la pagina successiva -->
           <li v-if="nextPageUrl" class="page-item">
-            <a class="page-link" @click="getProjectsFromApi(currentPage + 1)">Next</a>
+            <a class="page-link link-dark" @click="getProjectsFromApi(currentPage + 1)">Next</a>
           </li>
         </ul>
       </nav>  
