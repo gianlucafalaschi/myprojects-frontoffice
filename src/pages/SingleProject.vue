@@ -42,54 +42,15 @@ export default {
 </script>
 
 <template>
-<!--     <div class="container-fluid  ms-min-height">
-        <div class="row">
-            <div v-if="project && !isLoading">
-                <h1 class="text-center mt-3">{{ project.name }}</h1>
-                <div class="col-12 col-lg-6">
-                    <div class="mt-4" v-if="project.cover_image">
-                        <img class="ms-main-image" :src="`${store.backendUrl}/storage/${project.cover_image}`"
-                            :alt="project.name">
-                    </div>
-                </div>
-
-                <div class="col-6 mt-4 offset-3  col-lg-6 offset-lg-0">
-                    <div v-if="project.client_name"><strong>Client name</strong>: {{ project.client_name }}</div>
-                    <div v-if="project.type">
-                        <strong>Type</strong>: {{ project.type.name }}
-                    </div>
-                    <div v-if="project.technologies.length > 0">
-                        <div class="mb-2"><strong>Technologies</strong>:</div>
-                        <div class="d-flex gap-1">
-                            <div v-for="technology in project.technologies"
-                                class="badge rounded-pill text-bg-dark fs-6"> {{ technology.name }}</div>
-                        </div>
-                    </div>
-                    <div class="rounded mt-4">
-                        <P class="ms-summary-box rounded m-0 p-3 ">{{ project.summary }}</P>
-                    </div>
-                </div>
-
-
-            </div>
-            <div v-else>
-                <Loader></Loader>
-            </div>
-            <div>
-                <router-link :to="{ name: 'projects' }" class="btn btn-dark my-4">Back</router-link>
-            </div>
-        </div>
-    </div> -->
-
 
     <div class="container-fluid  ms-min-height">
         <div class="row">
             <div v-if="project && !isLoading" class="col-12">
-                <h1 class="text-center my-3">{{ project.name }}</h1>
+                <h1 class="text-center my-5">{{ project.name }}</h1>
                 <div class="row"> 
                     <div class="col-12 col-lg-6"> 
                         <div v-if="project.cover_image">
-                            <img class="ms-main-image" :src="`${store.backendUrl}/storage/${project.cover_image}`"
+                            <img class="ms-main-image shadow" :src="`${store.backendUrl}/storage/${project.cover_image}`"
                                 :alt="project.name">
                         </div>
                     </div>
@@ -105,8 +66,8 @@ export default {
                                     class="badge rounded-pill text-bg-dark fs-6"> {{ technology.name }}</div>
                             </div>
                         </div>
-                        <div class="rounded mt-4">
-                            <P class="ms-summary-box rounded m-0 p-3 ">{{ project.summary }}</P>
+                        <div class="ms-summary-box rounded mt-4 shadow">
+                            <P class="m-0 p-3">{{ project.summary }}</P>
                         </div>
                     </div>
                 </div>
@@ -127,11 +88,23 @@ export default {
 @use '../style/partials/variables' as *;
 
 .ms-main-image {
+    border-radius: 10px;
     width: 100%;
     height: auto;
+    transition: transform 0.5s ease;
+    &:hover {
+        transform: translateY(-5px);
+        border: 2px solid black;
+    }
 }
 
 .ms-summary-box {
     background-color: $gray-color;
+    transition: transform 0.5s ease;
+    &:hover {
+        transform: translateY(-5px);
+        border: 1px solid black;
+
+    }
 }
 </style>
