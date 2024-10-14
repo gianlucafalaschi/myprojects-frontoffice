@@ -43,14 +43,14 @@ export default {
 
 <template>
 
-    <div class="container-fluid  ms-min-height">
+    <div class="container ms-min-height">
         <div class="row">
             <div v-if="project && !isLoading" class="col-12">
                 <h1 class="text-center my-5">{{ project.name }}</h1>
                 <div class="row"> 
                     <div class="col-12 col-lg-6"> 
-                        <div v-if="project.cover_image">
-                            <img class="ms-main-image shadow" :src="`${store.backendUrl}/storage/${project.cover_image}`"
+                        <div class="ms-image-box shadow" v-if="project.cover_image">
+                            <img class="ms-main-image" :src="`${store.backendUrl}/storage/${project.cover_image}`"
                                 :alt="project.name">
                         </div>
                     </div>
@@ -75,7 +75,7 @@ export default {
             <div v-else>
                 <Loader></Loader>
             </div>
-            <div>
+            <div class="container">
                 <router-link :to="{ name: 'projects' }" class="btn btn-dark my-4">Back</router-link>
             </div>
         </div>
@@ -87,15 +87,24 @@ export default {
 <style scoped lang="scss">
 @use '../style/partials/variables' as *;
 
-.ms-main-image {
+
+.ms-image-box {
     border-radius: 10px;
-    width: 100%;
-    height: auto;
+    overflow: hidden;
     transition: transform 0.5s ease;
     &:hover {
         transform: translateY(-5px);
         border: 2px solid black;
     }
+}
+
+
+.ms-main-image {
+    width: 100%;
+    height: auto;
+    max-height: 653px;
+    object-fit: cover;
+    
 }
 
 .ms-summary-box {
