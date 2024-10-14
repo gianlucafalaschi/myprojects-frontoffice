@@ -13,65 +13,125 @@ export default {
             store,
             project: null,
             isLoading: false  // gestisce il caricamento del componente Loader
-        }; 
+        };
     },
     methods: {
-    getProjectDetails() {
-        this.isLoading = true;
-     // Funzione che prende il project dall'API  
-     //<!-- $route.params.slug    sintassi per leggere lo slug della pagina -->       
-     axios.get(`${this.store.backendUrl}/api/projects/${this.$route.params.slug}`)  
-        .then((response) => {
-          console.log(response);
-          // se response.data.success è true mostriamo il single project
-          if(response.data.success) {
-            this.project = response.data.project;
-          } else{
-          // altrimenti redirect alla pagina 404
-          this.$router.push({name: 'not-found'})  
-          }
+        getProjectDetails() {
+            this.isLoading = true;
+            // Funzione che prende il project dall'API  
+            //<!-- $route.params.slug    sintassi per leggere lo slug della pagina -->       
+            axios.get(`${this.store.backendUrl}/api/projects/${this.$route.params.slug}`)
+                .then((response) => {
+                    console.log(response);
+                    // se response.data.success è true mostriamo il single project
+                    if (response.data.success) {
+                        this.project = response.data.project;
+                    } else {
+                        // altrimenti redirect alla pagina 404
+                        this.$router.push({ name: 'not-found' })
+                    }
 
-          this.isLoading = false;
-        });
+                    this.isLoading = false;
+                });
+        }
+    },
+    mounted() {
+        this.getProjectDetails();
     }
-  },
-  mounted() {
-    this.getProjectDetails();
-  }
 }
 </script>
 
 <template>
-    <div class="container ms-min-height">
-        <div v-if="project && !isLoading">
-            <h1>{{project.name}}</h1>
-            <div v-if="project.client_name"><strong>Client name</strong>: {{ project.client_name }}</div>
-            <div v-if="project.type">
-                <strong>Type</strong>: {{ project.type.name }}
+<!--     <div class="container-fluid  ms-min-height">
+        <div class="row">
+            <div v-if="project && !isLoading">
+                <h1 class="text-center mt-3">{{ project.name }}</h1>
+                <div class="col-12 col-lg-6">
+                    <div class="mt-4" v-if="project.cover_image">
+                        <img class="ms-main-image" :src="`${store.backendUrl}/storage/${project.cover_image}`"
+                            :alt="project.name">
+                    </div>
+                </div>
+
+                <div class="col-6 mt-4 offset-3  col-lg-6 offset-lg-0">
+                    <div v-if="project.client_name"><strong>Client name</strong>: {{ project.client_name }}</div>
+                    <div v-if="project.type">
+                        <strong>Type</strong>: {{ project.type.name }}
+                    </div>
+                    <div v-if="project.technologies.length > 0">
+                        <div class="mb-2"><strong>Technologies</strong>:</div>
+                        <div class="d-flex gap-1">
+                            <div v-for="technology in project.technologies"
+                                class="badge rounded-pill text-bg-dark fs-6"> {{ technology.name }}</div>
+                        </div>
+                    </div>
+                    <div class="rounded mt-4">
+                        <P class="ms-summary-box rounded m-0 p-3 ">{{ project.summary }}</P>
+                    </div>
+                </div>
+
+
             </div>
-            <div v-if="project.technologies.length > 0">
-                <div class="mb-2"><strong>Technologies</strong>:</div>
-                <div class="d-flex gap-1">
-                    <div v-for="technology in project.technologies" class="badge rounded-pill text-bg-success"> {{ technology.name }}</div>
+            <div v-else>
+                <Loader></Loader>
+            </div>
+            <div>
+                <router-link :to="{ name: 'projects' }" class="btn btn-dark my-4">Back</router-link>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="container-fluid  ms-min-height">
+        <div class="row">
+            <div v-if="project && !isLoading" class="col-12">
+                <h1 class="text-center my-3">{{ project.name }}</h1>
+                <div class="row"> 
+                    <div class="col-12 col-lg-6"> 
+                        <div v-if="project.cover_image">
+                            <img class="ms-main-image" :src="`${store.backendUrl}/storage/${project.cover_image}`"
+                                :alt="project.name">
+                        </div>
+                    </div>
+                    <div class="col-6 offset-3 offset-lg-0 mt-3 mt-lg-0"> 
+                        <div v-if="project.client_name"><strong>Client name</strong>: {{ project.client_name }}</div>
+                        <div v-if="project.type">
+                            <strong>Type</strong>: {{ project.type.name }}
+                        </div>
+                        <div v-if="project.technologies.length > 0">
+                            <div class="mb-2"><strong>Technologies</strong>:</div>
+                            <div class="d-flex gap-1">
+                                <div v-for="technology in project.technologies"
+                                    class="badge rounded-pill text-bg-dark fs-6"> {{ technology.name }}</div>
+                            </div>
+                        </div>
+                        <div class="rounded mt-4">
+                            <P class="ms-summary-box rounded m-0 p-3 ">{{ project.summary }}</P>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="mt-4" v-if="project.cover_image">
-                <img :src="`${store.backendUrl}/storage/${project.cover_image}`" :alt="project.name">
+            <div v-else>
+                <Loader></Loader>
             </div>
-            
-            <P class="mt-4">{{ project.summary }}</P>
-        </div>
-        <div v-else>
-            <Loader></Loader>
-        </div>
-        <div>
-            <router-link :to="{name:'projects'}" class="btn btn-primary my-4">Back</router-link>
+            <div>
+                <router-link :to="{ name: 'projects' }" class="btn btn-dark my-4">Back</router-link>
+            </div>
         </div>
     </div>
+
 
 </template>
 
 <style scoped lang="scss">
 @use '../style/partials/variables' as *;
+
+.ms-main-image {
+    width: 100%;
+    height: auto;
+}
+
+.ms-summary-box {
+    background-color: $gray-color;
+}
 </style>
