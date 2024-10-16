@@ -19,6 +19,10 @@ export default {
                     text: 'About',
                     rootName: 'about'
                 },
+                {
+                    text: 'Privacy Policy',
+                    rootName: 'privacy'
+                },
             ]
         };
     }

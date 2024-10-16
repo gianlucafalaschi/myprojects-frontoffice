@@ -52,7 +52,7 @@ export default {
 
 <template>
   <div class="container ms-min-height">
-    <h1>All projects</h1>
+    <h1 class="my-3 text-center fst-italic">All projects</h1>
     
     <div v-if="!isLoading">
       <div class="row row-cols-3">

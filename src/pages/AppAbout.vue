@@ -20,7 +20,7 @@ export default {
     <section>
         <div class="py-1">
             <div class="container">
-                <h1 class="mb-3">About YourProjects</h1>
+                <h1 class="my-3 text-center fst-italic">About YourProjects</h1>
                 <p>Welcome to <strong>YourProjects</strong>! We are a passionate team of web development experts
                     dedicated
                     to bringing your digital dreams to life. Our mission is to create stunning, user-friendly websites
@@ -76,7 +76,7 @@ export default {
             <div class="container">
                 <p class="mt-3 fs-5">Join the many satisfied clients who have trusted <strong>YourProjects</strong> to
                     elevate their online presence.</p>
-                <p class="fs-5"><strong>Let's create something amazing together!</strong></p>
+                <p class="fs-5 fst-italic"><strong>Let's create something amazing together!</strong></p>
             </div>
         </div>
     </section>

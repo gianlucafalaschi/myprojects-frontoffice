@@ -46,7 +46,7 @@ export default {
     <div class="container ms-min-height">
         <div class="row">
             <div v-if="project && !isLoading" class="col-12">
-                <h1 class="text-center my-5">{{ project.name }}</h1>
+                <h1 class="my-5 text-center fst-italic">{{ project.name }}</h1>
                 <div class="row"> 
                     <div class="col-12 col-lg-6"> 
                         <div class="ms-image-box shadow" v-if="project.cover_image">
