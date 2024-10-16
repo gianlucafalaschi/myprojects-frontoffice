@@ -48,12 +48,15 @@ export default {
             <div v-if="project && !isLoading" class="col-12">
                 <h1 class="my-5 text-center fst-italic">{{ project.name }}</h1>
                 <div class="row"> 
+                    <!-- IMAGE -->
                     <div class="col-12 col-lg-6"> 
                         <div class="ms-image-box shadow" v-if="project.cover_image">
                             <img class="ms-main-image" :src="`${store.backendUrl}/storage/${project.cover_image}`"
                                 :alt="project.name">
                         </div>
                     </div>
+                    <!--/ IMAGE -->
+                    <!-- PROJECT INFO -->
                     <div class="col-6 offset-3 offset-lg-0 mt-3 mt-lg-0"> 
                         <div v-if="project.client_name"><strong>Client name</strong>: {{ project.client_name }}</div>
                         <div v-if="project.type">
@@ -66,9 +69,12 @@ export default {
                                     class="badge rounded-pill text-bg-dark fs-6"> {{ technology.name }}</div>
                             </div>
                         </div>
+                        <!--/ PROJECT INFO -->
+                        <!-- DESCRIPTION -->
                         <div class="ms-summary-box rounded mt-4 shadow">
                             <P class="m-0 p-3">{{ project.summary }}</P>
                         </div>
+                        <!--/ DESCRIPTION -->
                     </div>
                 </div>
             </div>
@@ -87,6 +93,9 @@ export default {
 <style scoped lang="scss">
 @use '../style/partials/variables' as *;
 
+/* * {
+    border: 1px solid pink;
+} */
 
 .ms-image-box {
     border-radius: 10px;
@@ -109,6 +118,7 @@ export default {
 
 .ms-summary-box {
     background-color: $gray-color;
+    border: 1px solid $gray-color;
     transition: transform 0.5s ease;
     &:hover {
         transform: translateY(-5px);

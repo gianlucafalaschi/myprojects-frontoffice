@@ -10,14 +10,18 @@ export default {
 </script>
 
 <template>
+    <!-- HERO -->
     <section class="ms-hero d-flex justify-content-center align-items-center shadow">
         <div class="ms-inside-hero text-white text-center">
             <h1 class="mb-5">Designing the Future, One Website at a Time</h1>
-            <router-link class="btn btn-light ms-button-hover shadow" :to="{ name: 'projects' }">Go to our Projects </router-link>
+            <router-link class="btn btn-light ms-button-hover shadow" :to="{ name: 'projects' }">Go to our Projects
+            </router-link>
         </div>
     </section>
+    <!--/ HERO -->
 
     <section>
+        <!-- ABOUT YOURPROJECTS -->
         <div class="py-1">
             <div class="container">
                 <h1 class="my-3 text-center fst-italic">About YourProjects</h1>
@@ -28,7 +32,8 @@ export default {
                     not only look great but also perform exceptionally well.</p>
             </div>
         </div>
-
+        <!--/ ABOUT YOURPROJECTS -->
+        <!-- WHO WE ARE -->
         <div class="ms-bg-color-dark pt-1">
             <div class="container">
                 <h2 class="mb-3">Who We Are</h2>
@@ -43,7 +48,8 @@ export default {
             <div class="ms-about-photo-box">
             </div>
         </div>
-
+        <!--/ WHO WE ARE -->
+        <!-- OUR APPROACH -->
         <div class="ms-bg-color-light py-1">
             <div class="container">
                 <h2 class="mb-3">Our Approach</h2>
@@ -55,23 +61,29 @@ export default {
                     experience.</p>
             </div>
         </div>
-
+        <!--/ OUR APPROACH -->
+        <!-- WHY CHOOSE US -->
         <div class="ms-bg-color-dark py-1">
             <div class="container">
                 <h2 class="mb-3">Why Choose Us?</h2>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item ms-bg-color-dark "><strong>Expertise</strong>: Our team has a proven track record of
+                    <li class="list-group-item ms-bg-color-dark "><strong>Expertise</strong>: Our team has a proven
+                        track record of
                         delivering high-quality web solutions.</li>
-                    <li class="list-group-item ms-bg-color-dark"><strong>Innovation</strong>: We stay ahead of industry trends to provide
+                    <li class="list-group-item ms-bg-color-dark"><strong>Innovation</strong>: We stay ahead of industry
+                        trends to provide
                         cutting-edge solutions.</li>
-                    <li class="list-group-item ms-bg-color-dark"><strong>Customer Satisfaction</strong>: Your satisfaction is our top
+                    <li class="list-group-item ms-bg-color-dark"><strong>Customer Satisfaction</strong>: Your
+                        satisfaction is our top
                         priority, and we go the extra mile to ensure you are happy with the final product.</li>
-                    <li class="list-group-item ms-bg-color-dark"><strong>Affordability</strong>: We offer competitive pricing without
+                    <li class="list-group-item ms-bg-color-dark"><strong>Affordability</strong>: We offer competitive
+                        pricing without
                         compromising on quality.</li>
                 </ul>
             </div>
         </div>
-
+        <!--/ WHY CHOOSE US -->
+        <!-- JOIN US -->
         <div class="ms-bg-color-light py-1">
             <div class="container">
                 <p class="mt-3 fs-5">Join the many satisfied clients who have trusted <strong>YourProjects</strong> to
@@ -79,6 +91,7 @@ export default {
                 <p class="fs-5 fst-italic"><strong>Let's create something amazing together!</strong></p>
             </div>
         </div>
+        <!--/ JOIN US -->
     </section>
 </template>
 
