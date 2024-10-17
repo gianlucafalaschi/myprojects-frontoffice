@@ -18,7 +18,7 @@ export default {
     <div class="card my-3 shadow">
           <img :src="`${store.backendUrl}/storage/${projectInfo.cover_image}`" class="card-img-top ms-card-img" :alt="projectInfo.name">
           <div class="card-body text-center">
-            <h5 class="card-title fs-1 mb-3">{{ projectInfo.name }}</h5>
+            <h5 class="card-title fs-1 mb-3 text-truncate">{{ projectInfo.name }}</h5>
             <div class="ms-type-container badge bg-secondary fs-6" v-if="projectInfo.type">
               <strong>Type</strong>:
               <span>{{ projectInfo.type.name}}</span>
